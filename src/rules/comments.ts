@@ -1,7 +1,7 @@
 import { ESLintUtils } from '@typescript-eslint/experimental-utils';
 import { TSESTree } from '@typescript-eslint/typescript-estree';
 
-const createRule = ESLintUtils.RuleCreator(name => `https://github.com/EliteWise/eslint-plugin-comments-analyser/${name}`);
+const createRule = ESLintUtils.RuleCreator(name => `https://github.com/EliteWise/eslint-plugin-comments-analyser/blob/master/readme.md`);
 
 const rule = createRule({
   name: 'check-function-comments',
