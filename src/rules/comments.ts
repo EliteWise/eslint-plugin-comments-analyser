@@ -42,7 +42,7 @@ const fileRule = createRule({
   meta: {
     type: 'suggestion',
     docs: {
-      description: 'Ensure each file (.ts / .tsx / .js) contain at least one comment',
+      description: 'Ensure each file (.ts / .tsx / .js) contains at least one comment',
       recommended: false,
     },
     schema: [], // This rule does not have options
