@@ -32,4 +32,4 @@ You can adjust the level of the rule to suit your needs, using `off`, `warn` or 
 ## Rules
 
 - `function`: This rule checks that all functions are preceded by a comment.
-- [Dev] `file`
+- `file`: This rule ensure each file (.ts / .tsx / .js) contains at least one comment.
