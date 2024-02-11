@@ -22,7 +22,8 @@ Then activate the rule by adding a rule to the rules section.
     "eslint-plugin-comments-analyser"
   ],
   "rules": {
-    "eslint-plugin-comments-analyser/function": "warn"
+    "eslint-plugin-comments-analyser/function": "warn",
+    "eslint-plugin-comments-analyser/file": "warn"
   }
 }
 ```
