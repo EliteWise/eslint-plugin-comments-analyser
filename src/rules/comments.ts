@@ -3,8 +3,8 @@ import { TSESTree } from '@typescript-eslint/typescript-estree';
 
 const createRule = ESLintUtils.RuleCreator(name => `https://github.com/EliteWise/eslint-plugin-comments-analyser/blob/master/readme.md`);
 
-const rule = createRule({
-  name: 'check-function-comments',
+const functionRule = createRule({
+  name: 'function',
   meta: {
     type: 'suggestion',
     docs: {
@@ -37,4 +37,43 @@ const rule = createRule({
   },
 });
 
-export default rule;
+const fileRule = createRule({
+  name: 'file',
+  meta: {
+    type: 'suggestion',
+    docs: {
+      description: 'Ensure each file (.ts / .tsx / .js) contain at least one comment',
+      recommended: false,
+    },
+    schema: [], // This rule does not have options
+    messages: {
+      missingComment: 'File "{{ name }}" is missing a comment.',
+    },
+  },
+  defaultOptions: [],
+  create(context) {
+    return {
+      Program(node: TSESTree.Node) {
+        const fileName = context.getFilename()
+        const comments = context.getSourceCode().getAllComments();
+
+        if (comments.length === 0) {
+          context.report({
+            node,
+            messageId: 'missingComment',
+            data: {
+              name: fileName,
+            },
+          });
+        }
+      },
+    };
+  },
+});
+
+module.exports = {
+  rules: {
+    "function": functionRule,
+    "file": fileRule
+  },
+};
