@@ -1,5 +1,5 @@
-import { ESLintUtils } from '@typescript-eslint/experimental-utils';
-import { TSESTree } from '@typescript-eslint/typescript-estree';
+const { ESLintUtils } = require('@typescript-eslint/experimental-utils');
+const { TSESTree } = require('@typescript-eslint/typescript-estree');
 
 const createRule = ESLintUtils.RuleCreator(name => `https://github.com/EliteWise/eslint-plugin-comments-analyser/blob/master/readme.md`);
 
@@ -19,9 +19,13 @@ const functionRule = createRule({
   defaultOptions: [],
   create(context) {
     return {
-      'FunctionDeclaration, FunctionExpression, ArrowFunctionExpression'(node: TSESTree.Node) {
+      'FunctionDeclaration, FunctionExpression'(node) {
         const sourceCode = context.getSourceCode();
         const commentsBefore = sourceCode.getCommentsBefore(node);
+
+        if (node.parent && node.parent.type === 'ExportDefaultDeclaration') {
+          return;
+        }
 
         if (commentsBefore.length === 0) {
           context.report({
@@ -53,7 +57,7 @@ const fileRule = createRule({
   defaultOptions: [],
   create(context) {
     return {
-      Program(node: TSESTree.Node) {
+      Program(node) {
         const fileName = context.getFilename()
         const comments = context.getSourceCode().getAllComments();
 
