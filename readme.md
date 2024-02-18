@@ -7,8 +7,8 @@ This ESLint plugin provides two rules: `function`, to ensure that each function 
 You will need [Node.js](https://nodejs.org/) and [npm](https://npmjs.com/) installed to use this plugin. You can then install the ESLint plugin and ESLint using npm:
 
 ```bash
-npm install eslint --save-dev
-npm install eslint-plugin-comments-analyser --save-dev
+npm install eslint eslint-plugin-comments-analyser --save-dev
+npm install typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin --save-dev
 ```
 
 ## Configuration
