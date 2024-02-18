@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-comments-analyser",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "This ESLint plugin provides two rules: `function`, to ensure that each function is preceded by a comment explaining its purpose, and `file`, to verify that each script file contains at least one comment.",
   "main": "src/rules/comments.ts",
   "scripts": {
@@ -23,5 +23,6 @@
   "peerDependencies": {
     "eslint": ">=8.0.0",
     "typescript": ">=4.0.0"
-  }
+  },
+  "type": "module"
 }
