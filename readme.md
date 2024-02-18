@@ -1,6 +1,6 @@
 # eslint-plugin-comments-analyser
 
-This ESLint plugin provides a custom rule to ensure that each function is preceded by a comment explaining its purpose.
+This ESLint plugin provides two rules: `function`, to ensure that each function is preceded by a comment explaining its purpose, and `file`, to verify that each script file contains at least one comment.
 
 ## Installation
 
